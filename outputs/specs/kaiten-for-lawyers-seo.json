@@ -1,0 +1,92 @@
+{
+  "landing": "kaiten-for-lawyers",
+  "slug": "kaiten-dlya-yuridicheskikh-otdelov",
+  "url": "https://kaiten.ru/dlya/yuridicheskikh-otdelov",
+  "seo": {
+    "title": "Kaiten для юридических отделов — управление договорами",
+    "title_length": 57,
+    "meta_description": "Централизованное управление договорами, согласованиями и сроками. Видимость всех процессов, контроль статусов, уведомления. Попробуй бесплатно.",
+    "description_length": 152,
+    "keywords": [
+      "управление договорами",
+      "юридический отдел",
+      "согласование документов",
+      "контроль сроков",
+      "система управления",
+      "корпоративные договоры"
+    ]
+  },
+  "open_graph": {
+    "og_title": "Все договоры и согласования в одной системе",
+    "og_description": "Управляй юридическими процессами и контролируй сроки в Kaiten. Видимость, согласования, уведомления об истечении сроков.",
+    "og_image": "https://kaiten.ru/images/lawyers-landing-og.png"
+  },
+  "schema_org": {
+    "organization": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kaiten",
+      "url": "https://kaiten.ru",
+      "logo": "https://kaiten.ru/logo.svg"
+    },
+    "breadcrumb": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Kaiten",
+          "item": "https://kaiten.ru"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Для юридических отделов",
+          "item": "https://kaiten.ru/dlya/yuridicheskikh-otdelov"
+        }
+      ]
+    }
+  },
+  "target_audience": {
+    "primary": "Начальники и менеджеры юридических отделов в крупных компаниях (50+ сотрудников)",
+    "secondary": "Корпоративные юристы, руководители групп, специалисты по управлению договорами",
+    "industries": [
+      "Финансовые услуги",
+      "Телекоммуникации",
+      "IT и SaaS",
+      "Государственные учреждения",
+      "Производство",
+      "Розница и e-commerce"
+    ],
+    "pain_points": [
+      "Сложно отследить статус всех договоров одновременно",
+      "Много участников в процессе согласования",
+      "Легко пропустить важные сроки",
+      "История изменений документов теряется в письмах",
+      "Нет единого места для хранения всех договоров",
+      "Процесс согласования разрозненный и неконтролируемый"
+    ]
+  },
+  "analytics": {
+    "goal_event_demo": "demoRequest",
+    "goal_event_signup": "trialSignup",
+    "goal_event_docs": "docsView",
+    "pixel_yandex": "<!-- Вставить ID Яндекс.Метрики -->",
+    "pixel_google": "<!-- Вставить Google Analytics ID -->"
+  },
+  "meta_tags": [
+    {
+      "name": "robots",
+      "content": "index, follow"
+    },
+    {
+      "name": "language",
+      "content": "Russian"
+    },
+    {
+      "name": "revisit-after",
+      "content": "7 days"
+    }
+  ]
+}

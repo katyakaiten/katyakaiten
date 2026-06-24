@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карьера в Kaiten</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #8146D3;
+    --purple-light: #9B6BE0;
+    --purple-glow: rgba(129, 70, 211, 0.12);
+    --yellow: #E2DB00;
+    --yellow-dim: rgba(226, 219, 0, 0.08);
+    --dark-0: #08090C;
+    --dark-1: #0D0F14;
+    --dark-2: #13161D;
+    --dark-3: #1A1D27;
+    --dark-border: #1F2330;
+    --text-100: #F0F0F5;
+    --text-300: #9B9EB0;
+    --text-500: #62657A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background: var(--dark-1);
+    color: var(--text-100);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 0 56px; height: 64px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(8, 9, 12, 0.8);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--dark-border);
+  }
+  .nav-logo img { height: 28px; opacity: 0.95; }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    color: var(--text-500); text-decoration: none;
+    font-size: 13px; font-weight: 400; letter-spacing: 0.3px;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--text-100); }
+  .nav-cta {
+    background: var(--purple); color: #fff;
+    padding: 8px 20px; border-radius: 8px;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--purple-light); }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 1120px; margin: 0 auto; }
+  section { padding: 120px 56px; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--purple);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700; letter-spacing: -0.8px;
+    color: #fff; line-height: 1.15; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--text-300);
+    max-width: 540px; line-height: 1.7; margin-bottom: 56px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding-top: 64px; position: relative;
+  }
+  .hero-inner { max-width: 720px; }
+  .hero-bg {
+    position: absolute; top: -40%; right: -15%; width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(129,70,211,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-bg-2 {
+    position: absolute; bottom: -20%; left: -10%; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(226,219,0,0.03) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 5.5vw, 64px);
+    font-weight: 700; line-height: 1.08;
+    letter-spacing: -2px; color: #fff; margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--purple) 30%, var(--purple-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-desc {
+    font-size: 17px; color: var(--text-300);
+    max-width: 500px; line-height: 1.75; margin-bottom: 44px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* fade-up animations */
+  .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.7s ease forwards; }
+  .fade-up-1 { animation-delay: 0.08s; }
+  .fade-up-2 { animation-delay: 0.16s; }
+  .fade-up-3 { animation-delay: 0.24s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── BUTTONS ─── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: 10px;
+    font-size: 14px; font-weight: 700; font-family: 'Roboto', sans-serif;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-primary {
+    background: var(--purple); color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--purple-light); transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(129,70,211,0.3);
+  }
+  .btn-ghost {
+    background: transparent; color: var(--text-300);
+    border: 1px solid var(--dark-border);
+  }
+  .btn-ghost:hover { border-color: var(--text-500); color: #fff; }
+  .btn .arr { transition: transform 0.25s; }
+  .btn:hover .arr { transform: translateX(3px); }
+
+  /* ─── STATS BAR ─── */
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--dark-border);
+    border-bottom: 1px solid var(--dark-border);
+  }
+  .stat {
+    padding: 52px 40px; text-align: center;
+    border-right: 1px solid var(--dark-border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-size: 36px; font-weight: 700; color: #fff;
+    letter-spacing: -1px; margin-bottom: 6px;
+  }
+  .stat-val span { color: var(--purple); }
+  .stat-cap { font-size: 13px; color: var(--text-500); font-weight: 400; }
+
+  /* ─── VALUES ─── */
+  .values-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--dark-border); border-radius: 16px; overflow: hidden;
+  }
+  .val-card {
+    background: var(--dark-2); padding: 44px 40px;
+    transition: background 0.3s;
+  }
+  .val-card:hover { background: var(--dark-3); }
+  .val-card h3 {
+    font-size: 17px; font-weight: 700; color: #fff;
+    margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+  }
+  .val-card h3::before {
+    content: ''; display: block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--purple); flex-shrink: 0;
+  }
+  .val-card p {
+    font-size: 14px; color: var(--text-300); line-height: 1.7;
+    padding-left: 16px;
+  }
+
+  /* ─── PERKS ─── */
+  .perks-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .perk {
+    background: var(--dark-2); border: 1px solid var(--dark-border);
+    border-radius: 14px; padding: 32px 28px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .perk:hover { border-color: rgba(129,70,211,0.25); transform: translateY(-3px); }
+  .perk-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--yellow); margin-bottom: 14px;
+  }
+  .perk h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .perk p { font-size: 13px; color: var(--text-500); line-height: 1.65; }
+
+  /* ─── TRAITS ─── */
+  .traits { max-width: 640px; }
+  .trait {
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 22px 0; border-bottom: 1px solid var(--dark-border);
+  }
+  .trait::before {
+    content: ''; display: block;
+    width: 8px; height: 8px; min-width: 8px;
+    border-radius: 50%; background: var(--purple);
+    margin-top: 7px;
+  }
+  .trait p { font-size: 16px; color: var(--text-100); line-height: 1.6; }
+
+  /* ─── HIRING ─── */
+  .hiring-section { background: var(--dark-0); }
+  .hiring-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 64px; flex-wrap: wrap; gap: 20px;
+  }
+  .hiring-badge {
+    font-size: 14px; font-weight: 400; color: var(--yellow);
+    background: var(--yellow-dim);
+    padding: 8px 20px; border-radius: 100px;
+  }
+  .timeline {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: ''; position: absolute;
+    top: 24px; left: 24px; right: 24px; height: 2px;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--yellow) 100%);
+    opacity: 0.25;
+  }
+  .step { text-align: center; position: relative; }
+  .step-dot {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--dark-1); border: 2px solid var(--dark-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; color: var(--text-500);
+    margin: 0 auto 20px; position: relative; z-index: 2;
+    transition: all 0.35s;
+  }
+  .step:hover .step-dot {
+    border-color: var(--purple); color: var(--purple);
+    box-shadow: 0 0 24px rgba(129,70,211,0.2);
+  }
+  .step:last-child .step-dot {
+    border-color: var(--yellow); color: var(--yellow);
+  }
+  .step h3 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .step p { font-size: 13px; color: var(--text-500); line-height: 1.6; padding: 0 8px; }
+
+  /* ─── VACANCIES ─── */
+  .vac-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 36px; flex-wrap: wrap; gap: 20px;
+  }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filt {
+    padding: 9px 20px; border-radius: 100px;
+    font-size: 13px; font-weight: 400; font-family: 'Roboto', sans-serif;
+    background: transparent; border: 1px solid var(--dark-border);
+    color: var(--text-500); cursor: pointer; transition: all 0.25s;
+  }
+  .filt:hover, .filt.on { background: var(--purple); border-color: var(--purple); color: #fff; }
+  .vac-list { display: flex; flex-direction: column; gap: 8px; }
+  .vac {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--dark-2); border: 1px solid var(--dark-border);
+    border-radius: 14px; padding: 24px 28px; text-decoration: none;
+    transition: all 0.25s; cursor: pointer;
+  }
+  .vac:hover { border-color: rgba(129,70,211,0.35); transform: translateX(3px); }
+  .vac h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .vac-meta { font-size: 12px; color: var(--text-500); display: flex; gap: 12px; }
+  .vac-arr {
+    font-size: 18px; color: var(--text-500); transition: all 0.25s;
+  }
+  .vac:hover .vac-arr { color: var(--purple); transform: translateX(3px); }
+
+  /* ─── CTA ─── */
+  .cta {
+    text-align: center; padding: 140px 56px; position: relative;
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(129,70,211,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta .section-title { max-width: 500px; margin: 0 auto 12px; }
+  .cta .section-sub { max-width: 420px; margin: 0 auto 40px; text-align: center; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--dark-border);
+    padding: 32px 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    font-size: 13px; color: var(--text-500);
+  }
+  footer a { color: var(--purple-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section, .hero, .cta { padding-left: 24px; padding-right: 24px; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--dark-border); padding: 36px 24px; }
+    .stat:last-child { border-bottom: none; }
+    .values-grid, .perks-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; gap: 28px; }
+    .timeline::before { display: none; }
+    .step { text-align: left; display: flex; gap: 16px; align-items: flex-start; }
+    .step-dot { margin: 0; min-width: 48px; }
+    footer { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="data:image/webp;base64,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" alt="Kaiten">
+  </div>
+  <div class="nav-links">
+    <a href="#values">О нас</a>
+    <a href="#perks">Условия</a>
+    <a href="#hiring">Как нанимаем</a>
+    <a href="#vacancies">Вакансии</a>
+  </div>
+  <a href="#vacancies" class="nav-cta">Вакансии</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-2"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <h1 class="fade-up fade-up-1">Создавай продукт, которым пользуются <em>тысячи команд</em></h1>
+      <p class="hero-desc fade-up fade-up-2">
+        Kaiten — сервис управления задачами и проектами. Помогаем командам убрать хаос из работы и быстрее достигать результатов.
+      </p>
+      <div class="hero-actions fade-up fade-up-3">
+        <a href="#vacancies" class="btn btn-primary">Смотреть вакансии <span class="arr">&rarr;</span></a>
+        <a href="#values" class="btn btn-ghost">Узнать о нас</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-val">с 2018</div>
+    <div class="stat-cap">Российский продукт</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">100 000<span>+</span></div>
+    <div class="stat-cap">Компаний-клиентов</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">От стартапов до enterprise</div>
+    <div class="stat-cap">Работаем с любым масштабом</div>
+  </div>
+</div>
+
+<!-- ─── VALUES ─── -->
+<section id="values">
+  <div class="container">
+    <div class="section-label">О нас</div>
+    <div class="section-title">Как мы работаем</div>
+    <p class="section-sub">Гибкая и зрелая IT-компания, где уважают экспертизу и ценят эффективность.</p>
+    <div class="values-grid">
+      <div class="val-card">
+        <h3>Фокус на продукте и свобода решений</h3>
+        <p>Решения принимаются там, где есть экспертиза, а не там, где больше должность. Если ты понимаешь задачу лучше всех — ты и решаешь.</p>
+      </div>
+      <div class="val-card">
+        <h3>Доверие и прозрачность</h3>
+        <p>Информация открыта, контекст общий. Не нужно «выбивать» доступ к данным, чтобы нормально делать свою работу.</p>
+      </div>
+      <div class="val-card">
+        <h3>Стремление к лучшему</h3>
+        <p>Оптимизируем процессы, измеряем результат и не боимся менять то, что перестало работать. Даже если «так было всегда».</p>
+      </div>
+      <div class="val-card">
+        <h3>Поддержка проактивности</h3>
+        <p>Увидел проблему — скажи. Есть идея — предложи. Инициатива тут не наказуема, она ожидаема.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PERKS ─── -->
+<section id="perks" style="background: var(--dark-0);">
+  <div class="container">
+    <div class="section-label">Работа в Kaiten</div>
+    <div class="section-title">Что мы можем предложить</div>
+    <p class="section-sub"></p>
+    <div class="perks-grid">
+      <div class="perk">
+        <div class="perk-tag">Процессы</div>
+        <h3>Kanban-команда</h3>
+        <p>Прозрачность, короткие циклы, постоянные эксперименты. Работаем так, как учим работать наших клиентов.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-tag">Формат</div>
+        <h3>Удалёнка как стандарт</h3>
+        <p>Распределённая команда с 2018 года. Не «вынужденно перешли на удалёнку», а строили так с самого начала.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-tag">Культура</div>
+        <h3>Ноль бюрократии</h3>
+        <p>Никаких отчётов ради отчётов и согласований в пяти инстанциях. Только то, что реально помогает работать.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-tag">Баланс</div>
+        <h3>Гибкий график</h3>
+        <p>Нет жёсткого контроля рабочего времени. Есть здравый смысл и ориентация на результат.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-tag">Статус</div>
+        <h3>Аккредитованная IT-компания</h3>
+        <p>Отсрочка от армии, льготная ипотека, налоговые бенефиты.</p>
+      </div>
+      <div class="perk">
+        <div class="perk-tag">Забота</div>
+        <h3>Бенефиты</h3>
+        <p>ДМС, компенсация обучения, оборудование. Подробности — на собеседовании.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRAITS ─── -->
+<section id="people">
+  <div class="container">
+    <div class="section-label">Наши люди</div>
+    <div class="section-title">Нам по пути, если ты</div>
+    <p class="section-sub"></p>
+    <div class="traits">
+      <div class="trait"><p>Принимаешь решения сам и не ждёшь, пока кто-то скажет, что делать</p></div>
+      <div class="trait"><p>Мыслишь шире своей задачи — понимаешь, как твоя работа влияет на продукт</p></div>
+      <div class="trait"><p>Не боишься спорить по делу и предлагать альтернативы</p></div>
+      <div class="trait"><p>Доводишь задачу до результата, а не до статуса «в процессе»</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HIRING ─── -->
+<section id="hiring" class="hiring-section">
+  <div class="container">
+    <div class="hiring-head">
+      <div>
+        <div class="section-label">Процесс</div>
+        <div class="section-title">Быстро и без лишних этапов</div>
+      </div>
+      <div class="hiring-badge">Средний срок — 14 дней</div>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="step-dot">1</div>
+        <div>
+          <h3>Общение с HR</h3>
+          <p>30 минут. Обсудим ожидания, опыт и мотивацию. Расскажем про компанию и задачи позиции.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <div>
+          <h3>Собеседование с руководителем</h3>
+          <p>Обычное или техническое интервью — зависит от роли. HR заранее расскажет, к чему готовиться.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <div>
+          <h3>Встреча с командой</h3>
+          <p>Подробнее про процессы, взаимодействие и ответы на оставшиеся вопросы. Без сюрпризов.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-dot">4</div>
+        <div>
+          <h3>Оффер</h3>
+          <p>Быстрое решение. Без затянутых ожиданий и дополнительных раундов.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VACANCIES ─── -->
+<section id="vacancies">
+  <div class="container">
+    <div class="vac-head">
+      <div>
+        <div class="section-label">Вакансии</div>
+        <div class="section-title">Открытые позиции</div>
+      </div>
+      <div class="filters">
+        <button class="filt on" onclick="fv('all',this)">Все</button>
+        <button class="filt" onclick="fv('dev',this)">Разработка</button>
+        <button class="filt" onclick="fv('product',this)">Продукт</button>
+        <button class="filt" onclick="fv('sales',this)">Продажи</button>
+        <button class="filt" onclick="fv('support',this)">Поддержка</button>
+      </div>
+    </div>
+    <div class="vac-list">
+      <a class="vac" data-c="dev" href="#">
+        <div>
+          <h3>Backend-разработчик (Go)</h3>
+          <div class="vac-meta"><span>Разработка</span><span>Удалённо</span><span>Полная занятость</span></div>
+        </div>
+        <span class="vac-arr">&rarr;</span>
+      </a>
+      <a class="vac" data-c="dev" href="#">
+        <div>
+          <h3>Frontend-разработчик (React)</h3>
+          <div class="vac-meta"><span>Разработка</span><span>Удалённо</span><span>Полная занятость</span></div>
+        </div>
+        <span class="vac-arr">&rarr;</span>
+      </a>
+      <a class="vac" data-c="product" href="#">
+        <div>
+          <h3>Product Manager</h3>
+          <div class="vac-meta"><span>Продукт</span><span>Удалённо</span><span>Полная занятость</span></div>
+        </div>
+        <span class="vac-arr">&rarr;</span>
+      </a>
+      <a class="vac" data-c="sales" href="#">
+        <div>
+          <h3>Менеджер по продажам (B2B)</h3>
+          <div class="vac-meta"><span>Продажи</span><span>Удалённо</span><span>Полная занятость</span></div>
+        </div>
+        <span class="vac-arr">&rarr;</span>
+      </a>
+      <a class="vac" data-c="support" href="#">
+        <div>
+          <h3>Специалист поддержки</h3>
+          <div class="vac-meta"><span>Поддержка</span><span>Удалённо</span><span>Полная занятость</span></div>
+        </div>
+        <span class="vac-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta">
+  <div class="cta-glow"></div>
+  <div class="container" style="position:relative;">
+    <div class="section-title" style="text-align:center; max-width:500px; margin:0 auto 12px;">Не нашёл подходящую вакансию?</div>
+    <p class="section-sub" style="max-width:420px; margin:0 auto 40px; text-align:center;">
+      Если тебе близок наш подход — напиши на hr@kaiten.ru. Расскажи, чем занимаешься и что ищешь. Возможно, мы как раз ищем тебя.
+    </p>
+    <div style="text-align:center;">
+      <a href="mailto:hr@kaiten.ru" class="btn btn-primary">Написать на hr@kaiten.ru <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <span>Kaiten &copy; 2018–2026</span>
+  <span>Вопросы о карьере: <a href="mailto:hr@kaiten.ru">hr@kaiten.ru</a></span>
+</footer>
+
+<script>
+function fv(c, el) {
+  document.querySelectorAll('.filt').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.vac').forEach(v => {
+    v.style.display = (c === 'all' || v.dataset.c === c) ? 'flex' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

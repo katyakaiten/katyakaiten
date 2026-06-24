@@ -1,0 +1,260 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Kaiten Landing Schema",
+  "description": "Schema for Kaiten landing page structure and metadata",
+  "type": "object",
+  "required": ["title", "slug", "audience", "sections"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Landing page title (50-60 characters)",
+      "minLength": 50,
+      "maxLength": 60
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL slug (lowercase with hyphens)",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "audience": {
+      "type": "string",
+      "description": "Target audience/industry",
+      "examples": ["канбан-команды", "юридические отделы", "редакции", "производства"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Meta description (150-160 characters)",
+      "minLength": 150,
+      "maxLength": 160
+    },
+    "keywords": {
+      "type": "array",
+      "description": "SEO keywords",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "maxItems": 6
+    },
+    "hero": {
+      "type": "object",
+      "description": "Hero section",
+      "required": ["title", "subtitle", "cta_text"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Main heading"
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "Subheading with value proposition"
+        },
+        "cta_text": {
+          "type": "string",
+          "description": "Call-to-action button text",
+          "examples": ["Попробовать", "Запросить демо", "Начать бесплатно"]
+        },
+        "cta_link": {
+          "type": "string",
+          "description": "CTA button link URL"
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "description": "Landing page sections in order",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "title": "Text Section",
+            "required": ["type", "heading"],
+            "properties": {
+              "type": {
+                "enum": ["text"]
+              },
+              "heading": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "title": "Features Section",
+            "required": ["type", "heading", "features"],
+            "properties": {
+              "type": {
+                "enum": ["features"]
+              },
+              "heading": {
+                "type": "string"
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["title", "description"],
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string",
+                      "description": "Icon or emoji"
+                    }
+                  }
+                },
+                "minItems": 3,
+                "maxItems": 6
+              }
+            }
+          },
+          {
+            "type": "object",
+            "title": "Case Studies Section",
+            "required": ["type", "heading", "cases"],
+            "properties": {
+              "type": {
+                "enum": ["cases"]
+              },
+              "heading": {
+                "type": "string"
+              },
+              "cases": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["company", "industry", "result"],
+                  "properties": {
+                    "company": {
+                      "type": "string"
+                    },
+                    "industry": {
+                      "type": "string"
+                    },
+                    "challenge": {
+                      "type": "string"
+                    },
+                    "solution": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "type": "string"
+                    },
+                    "metrics": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "link": {
+                      "type": "string",
+                      "description": "Link to full case study"
+                    }
+                  }
+                },
+                "minItems": 2
+              }
+            }
+          },
+          {
+            "type": "object",
+            "title": "FAQ Section",
+            "required": ["type", "heading", "questions"],
+            "properties": {
+              "type": {
+                "enum": ["faq"]
+              },
+              "heading": {
+                "type": "string"
+              },
+              "questions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["question", "answer"],
+                  "properties": {
+                    "question": {
+                      "type": "string"
+                    },
+                    "answer": {
+                      "type": "string",
+                      "maxLength": 300
+                    }
+                  }
+                },
+                "minItems": 5,
+                "maxItems": 7
+              }
+            }
+          }
+        ]
+      }
+    },
+    "research": {
+      "type": "object",
+      "description": "Research and analysis conducted",
+      "properties": {
+        "audience_analysis": {
+          "type": "string",
+          "description": "2-3 paragraphs about target audience"
+        },
+        "competitors": {
+          "type": "array",
+          "description": "Competing solutions analyzed",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sources": {
+          "type": "array",
+          "description": "Sources used for research",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "checklist": {
+      "type": "array",
+      "description": "Pre-publication checklist items",
+      "items": {
+        "type": "object",
+        "required": ["item", "status"],
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "status": {
+            "enum": ["done", "pending", "needs_review"]
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Technical metadata",
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "author": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "status": {
+          "enum": ["draft", "review", "published"]
+        }
+      }
+    }
+  }
+}

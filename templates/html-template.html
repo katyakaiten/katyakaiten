@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiten для [СФЕРА]</title>
+    <meta name="description" content="[150-160 символов с основной идеей лендинга]">
+    <meta name="keywords" content="kaiten, управление проектами, [ключевое слово]">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kaiten",
+        "url": "https://kaiten.ru",
+        "logo": "https://kaiten.ru/logo.svg",
+        "description": "Российский сервис управления проектами"
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Responsive Typography */
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: clamp(2rem, 8vw, 4rem) 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            padding: clamp(3rem, 10vw, 6rem) 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #1a1f36;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: #f9f9f9;
+            border-left: 4px solid #007BFF;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a1f36;
+        }
+
+        .feature p {
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* Case Studies */
+        .cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .case {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            background: white;
+        }
+
+        .case h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1a1f36;
+        }
+
+        .case-label {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .case p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* FAQ */
+        .faq {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1a1f36;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1f36;
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 1.5rem 1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cases {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            h1 {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header>
+        <h1>Заголовок лендинга</h1>
+        <p class="subtitle">Подзаголовок с основной идеей</p>
+        <button class="cta-button">Попробовать</button>
+    </header>
+
+    <!-- Problem-Solution Section -->
+    <section>
+        <h2>Почему это важно</h2>
+        <p>Описание проблемы целевой аудитории и как это решает Kaiten.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+        <h2>Что ты получишь</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>Особенность 1</h3>
+                <p>Описание первой ключевой фичи и её преимущества.</p>
+            </div>
+            <div class="feature">
+                <h3>Особенность 2</h3>
+                <p>Описание второй ключевой фичи и её преимущества.</p>
+            </div>
+            <div class="feature">
+                <h3>Особенность 3</h3>
+                <p>Описание третьей ключевой фичи и её преимущества.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section>
+        <h2>Реальные примеры</h2>
+        <div class="cases">
+            <div class="case">
+                <div class="case-label">Компания • Сфера</div>
+                <h3>Название кейса</h3>
+                <p>Краткое описание результата и цифр.</p>
+            </div>
+            <div class="case">
+                <div class="case-label">Компания • Сфера</div>
+                <h3>Название кейса</h3>
+                <p>Краткое описание результата и цифр.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <h2>Часто спрашивают</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">Вопрос 1?</div>
+                <div class="faq-answer">Короткий ответ (2-3 предложения).</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Вопрос 2?</div>
+                <div class="faq-answer">Короткий ответ (2-3 предложения).</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="text-align: center; background: #f5f7fa;">
+        <h2>Готов попробовать?</h2>
+        <p>Финальный призыв к действию</p>
+        <button class="cta-button">Начать бесплатно</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Kaiten. Все права защищены.</p>
+        <p><a href="https://kaiten.ru">Сайт</a> | <a href="https://kaiten.ru/docs">Документация</a> | <a href="mailto:hello@kaiten.ru">Контакты</a></p>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

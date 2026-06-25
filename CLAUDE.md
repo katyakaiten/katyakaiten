@@ -32,16 +32,23 @@
 
 Перед тем как писать — я ДОЛЖЕН прочитать (В ЭТОМ ПОРЯДКЕ):
 
-1. **kaiten-landing-factory/references/examples/** — ВСЕ твои готовые примеры лендингов и копи
-   - Это ГЛАВНЫЙ источник для структуры и тона
-   - Изучаю как ты пишешь про Kaiten в разных сферах
-   - Опираюсь на примеры кейсов, фич, CTA
+1. **kaiten-landing-factory/references/landing_tz_examples/** — 7 ТЗ эталонов с реальной структурой
+   - Это ГЛАВНЫЙ источник для структуры и тона текстов
+   - Выбираю эталон похожей сферы
+   - Копирую структуру и тон, пишу новый текст
+   - Примеры:
+     - Кайтен для веб-агентств.md
+     - Кайтен для маркетинга.md
+     - Посадочная страница для ИТ команды.md
+     - И еще 4 других эталона
 
 2. **kaiten-landing-factory/SKILL.md** — полный гайд по созданию
 
 3. **kaiten-landing-factory/references/brand_policy/** — редполитика Kaiten (тон, язык, стиль)
 
-4. **kaiten-landing-factory/references/landing_tz_examples/** — примеры ТЗ для других сфер
+4. **kaiten-landing-factory/references/examples/** — HTML примеры верстки
+   - Смотрю как устроен код
+   - Вдохновляюсь структурой и стилями
 
 5. **kaiten-landing-factory/references/links/kaiten_public_references.md** — ссылки на кейсы и базу знаний
 
